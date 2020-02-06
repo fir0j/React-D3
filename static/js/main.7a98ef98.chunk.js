@@ -1,0 +1,2 @@
+(this["webpackJsonpReact-D3"]=this["webpackJsonpReact-D3"]||[]).push([[0],{3:function(e,t,n){e.exports=n(9)},8:function(e,t,n){},9:function(e,t,n){"use strict";n.r(t);var c=n(0),r=n.n(c),a=n(2),o=n.n(a),s=function(){return r.a.createElement("div",{className:"text-green-500"},"Hello World!")};n(8);o.a.render(r.a.createElement(s,null),document.getElementById("root"))}},[[3,1,2]]]);
+//# sourceMappingURL=main.7a98ef98.chunk.js.map
