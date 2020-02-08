@@ -39,7 +39,7 @@ export const DomControl = () => {
 								cy="10"
 								r={item}
 								stroke="red"
-								transform={`translate(150,75)`}
+								transform="translate(150,75)"
 								className="fill-current text-orange-200 hover:text-orange-300 cursor-pointer"
 							/>
 						))}

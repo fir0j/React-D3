@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { DomControl } from './components/DomControl.component';
 import * as d3 from 'd3';
 
-const width = 1024;
-const height = 500;
+const width = 650;
+const height = 400;
+// const margin = { top: 20, right: 5, bottom: 20, left: 35 };
+
 const App = () => {
 	const [ data, setData ] = useState(null);
 
@@ -43,12 +45,35 @@ const App = () => {
 		});
 	};
 
+	const lineChartData = () => {
+		// create scales
+		const xScale = d3.scaleTime().range([ 0, width ]);
+		const yScale = d3.scaleLinear().range([ height, 0 ]);
+		const timeDomain = d3.extent(data, (d) => d.date);
+		const tempMax = d3.max(data, (d) => d.high);
+		xScale.domain(timeDomain);
+		yScale.domain([ 0, tempMax ]);
+
+		// create and use line generator for high and low temperature
+		const lineGenerator = d3.line().x((d) => xScale(d.date));
+		return [
+			{
+				fill: '#eb6a5b',
+				path: lineGenerator.y((d) => yScale(d.high))(data)
+			},
+			{
+				fill: '#52b6ca',
+				path: lineGenerator.y((d) => yScale(d.low))(data)
+			}
+		];
+	};
+
 	return (
 		<div className="flex flex-wrap justify-around">
 			<div className="border mt-2">
 				{data && (
 					<div>
-						<svg width="600" height="300">
+						<svg width={width} height={height}>
 							{barChartData().map((item) => (
 								<rect x={item.x} y={item.y} width="2" height={item.height} fill={item.fill} />
 							))}
@@ -59,10 +84,9 @@ const App = () => {
 			<div className="border mt-2">
 				{data && (
 					<div>
-						<svg width="600" height="300">
-							{barChartData().map((item) => (
-								<rect x={item.x} y={item.y} width="2" height={item.height} fill={item.fill} />
-							))}
+						<svg width={width} height={height}>
+							<path d={lineChartData()[0].path} fill="none" stroke="red" />
+							<path d={lineChartData()[1].path} fill="none" stroke="blue" />
 						</svg>
 					</div>
 				)}
@@ -70,7 +94,7 @@ const App = () => {
 			<div className="border mt-2">
 				{data && (
 					<div>
-						<svg width="600" height="300">
+						<svg width={width} height={height}>
 							{barChartData().map((item) => (
 								<rect x={item.x} y={item.y} width="2" height={item.height} fill={item.fill} />
 							))}
