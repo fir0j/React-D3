@@ -1,0 +1,23 @@
+.bar-chart {
+  color: white;
+
+  &.bar-chart--stack {
+    rect {
+      fill: unset;
+
+      &:hover {
+        stroke: blueviolet;
+        stroke-width: 2;
+      }
+    }
+  }
+
+  .bar-chart__div {
+    background-color: steelblue;
+    border: 1px solid white;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 10px;
+  }
+}
