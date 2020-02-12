@@ -24,7 +24,7 @@ export const DomControl = () => {
 	);
 
 	return (
-		<div className="flex flex-col">
+		<div className="mt-20">
 			<div className="flex">
 				<div>
 					<p>D3 Controlling the SVG DOM</p>
@@ -35,6 +35,7 @@ export const DomControl = () => {
 					<svg>
 						{data.map((item) => (
 							<circle
+								key={item}
 								cx="10"
 								cy="10"
 								r={item}
