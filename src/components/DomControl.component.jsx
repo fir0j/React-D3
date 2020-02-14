@@ -7,12 +7,16 @@ export const DomControl = () => {
 
 	useEffect(
 		() => {
-			const svg = select(svgRef.current);
-			svg
+			select(svgRef.current)
+				// means selectElemnentByRef()  because we cannot selectElementBy Id or Classname in React.
 				.selectAll('circle')
+				// similar to querySelectorAll('circle') which selects all circle elements inside the DOM selected by select()
 				.data(data)
+				// for each data in the data array
 				.join('circle')
-				// these attributes will be applied to all the elements which enters ENTER PHASE as well as UPDATE PHASE of D3
+				// appends circle element for each data or iteration and passes all the selected circle elements through d3's enter, update and remove methods
+
+				// after join, all the attributes will be applied for each d3's lifecycle i.e enter, update and remove
 				.attr('r', (value) => value)
 				.attr('cx', 10)
 				.attr('cy', 10)
