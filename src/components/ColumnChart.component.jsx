@@ -10,7 +10,7 @@ const green = '#b6e86f';
 const blue = '#52b6ca';
 const colors = chroma.scale([ blue, green, red ]).mode('hsl');
 
-class BarChart extends Component {
+class ColumnChart extends Component {
 	state = {
 		bars: [], // array of rects
 		// d3 helpers
@@ -57,17 +57,19 @@ class BarChart extends Component {
 
 	render() {
 		return (
-			<svg width={width} height={height}>
-				{this.state.bars.map((d, i) => (
-					<rect key={i} x={d.x} y={d.y} width="2" height={d.height} fill={d.fill} />
-				))}
-				<g>
-					<g ref="xAxis" transform={`translate(0, ${height - margin.bottom})`} />
-					<g ref="yAxis" transform={`translate(${margin.left}, 0)`} />
-				</g>
-			</svg>
+			<div className="flex justify-center w-full">
+				<svg className="border w-full max-w-screen-xl h-screen90 " viewBox={`0 0 ${width} ${height}`}>
+					{this.state.bars.map((d, i) => (
+						<rect key={i} x={d.x} y={d.y} width="2" height={d.height} fill={d.fill} />
+					))}
+					<g>
+						<g ref="xAxis" transform={`translate(0, ${height - margin.bottom})`} />
+						<g ref="yAxis" transform={`translate(${margin.left}, 0)`} />
+					</g>
+				</svg>
+			</div>
 		);
 	}
 }
 
-export default BarChart;
+export default ColumnChart;

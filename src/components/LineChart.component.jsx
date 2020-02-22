@@ -55,14 +55,16 @@ class LineChart extends Component {
 
 	render() {
 		return (
-			<svg width={width} height={height}>
-				<path d={this.state.highs} fill="none" stroke={red} strokeWidth="2" />
-				<path d={this.state.lows} fill="none" stroke={blue} strokeWidth="2" />
-				<g>
-					<g ref="xAxisRef" transform={`translate(0, ${height - margin.bottom})`} />
-					<g ref="yAxisRef" transform={`translate(${margin.left}, 0)`} />
-				</g>
-			</svg>
+			<div className="flex justify-center w-full">
+				<svg className="border w-full max-w-screen-xl h-screen90 " viewBox={`0 0 ${width} ${height}`}>
+					<path d={this.state.highs} fill="none" stroke={red} strokeWidth="2" />
+					<path d={this.state.lows} fill="none" stroke={blue} strokeWidth="2" />
+					<g>
+						<g ref="xAxisRef" transform={`translate(0, ${height - margin.bottom})`} />
+						<g ref="yAxisRef" transform={`translate(${margin.left}, 0)`} />
+					</g>
+				</svg>
+			</div>
 		);
 	}
 }

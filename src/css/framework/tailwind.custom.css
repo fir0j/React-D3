@@ -648,6 +648,15 @@ video {
   background-color: #5a67d8;
 }
 
+/* responsive svg */
+
+.mainPage {
+  background-color: white;
+  height: 50vh;
+  width: 100%;
+  text-align: center;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

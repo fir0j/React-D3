@@ -55,20 +55,22 @@ class RadialChart extends Component {
 
 	render() {
 		return (
-			<svg width={width} height={height}>
-				<g transform={`translate(${width / 2}, ${height / 2})`}>
-					{this.state.slices.map((d, i) => <path key={i} d={d.path} fill={d.fill} />)}
+			<div className="flex justify-center w-full">
+				<svg className="border w-full max-w-screen-xl h-screen90 " viewBox={`0 0 ${width} ${height}`}>
+					<g transform={`translate(${width / 2}, ${height / 2})`}>
+						{this.state.slices.map((d, i) => <path key={i} d={d.path} fill={d.fill} />)}
 
-					{this.state.tempAnnotations.map((d, i) => (
-						<g key={i}>
-							<circle r={d.r} fill="none" stroke="#999" />
-							<text y={-d.r - 2} textAnchor="middle">
-								{d.temp}℉
-							</text>
-						</g>
-					))}
-				</g>
-			</svg>
+						{this.state.tempAnnotations.map((d, i) => (
+							<g key={i}>
+								<circle r={d.r} fill="none" stroke="#999" />
+								<text y={-d.r - 2} textAnchor="middle">
+									{d.temp}℉
+								</text>
+							</g>
+						))}
+					</g>
+				</svg>
+			</div>
 		);
 	}
 }
