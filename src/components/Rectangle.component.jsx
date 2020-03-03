@@ -28,7 +28,7 @@ export const Rectangle = () => {
 				<polygon fill="red" strokeWidth="0" points="0,10 20,10 10,0" />
 			</svg> */}
 
-			<svg className="border w-full max-w-screen-xl h-screen90 " viewBox="0 0 200 100" preserveAspectRatio>
+			<svg className="border w-full max-w-screen-xl h-screen90 " viewBox="0 0 200 100" preserveAspectRatio="true">
 				<rect width="200" height="100" fill="lightblue" strokeWidth="0" />
 			</svg>
 		</div>

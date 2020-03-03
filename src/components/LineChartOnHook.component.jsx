@@ -16,7 +16,7 @@ const LineChartOnHook = () => {
 		lows: null
 	});
 
-	// fetching data using newer javascript
+	// Using await keyword to resolve multiple promises is faster then usng using then.
 	useEffect(() => {
 		const fetchData = async () => {
 			const response = await fetch(
