@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import LineChart from './components/LineChart.component';
+import LineChartOnHook from './components/LineChartOnHook.component';
 import ColumnChart from './components/ColumnChart.component';
 import RadialChart from './components/RadialChart.component';
 import { D3Dom } from './components/D3Dom.component';
@@ -32,6 +33,9 @@ class App extends Component {
 	render() {
 		return (
 			<div className="flex flex-wrap">
+				<h3>Using Hook</h3>
+				<LineChartOnHook data={this.state.data} />
+				<h3>using Class Component</h3>
 				<LineChart data={this.state.data} />
 				<ColumnChart data={this.state.data} />
 				<RadialChart data={this.state.data} />

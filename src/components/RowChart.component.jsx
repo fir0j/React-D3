@@ -81,6 +81,7 @@ class RowChart extends React.Component {
 		this.setState({ width: width, height: height }, () => {
 			this.drawChart();
 		});
+
 		let resizedFn;
 		window.addEventListener('resize', () => {
 			clearTimeout(resizedFn);
